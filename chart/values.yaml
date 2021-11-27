@@ -1,0 +1,38 @@
+replicas: 1
+
+name:
+  jenkins
+
+jenkins:
+  securityContext:
+    user: 1000
+    group: 1000
+
+image:
+  repository: jenkins/jenkins:lts
+
+servers:
+  serviceType: LoadBalancer
+
+resources:
+  server:
+    requests:
+      memory: "500Mi"
+      cpu: "500m"
+      storage: "3Gi"
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+
+application:
+  ports:
+    httpport: 8080
+    jnlpport: 5000
+
+ingress:
+  host: jenkins-egor-ozhmegov.cloud.okteto.net
+  path: /
+
+volume:
+  name: jenkins-data
+  path: /var/jenkins-home
