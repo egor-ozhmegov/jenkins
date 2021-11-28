@@ -1,7 +1,8 @@
 replicas: 1
 
-name:
-  jenkins
+name: jenkins
+
+namespace: jenkins-egor-ozhmegov
 
 jenkins:
   securityContext:
@@ -35,4 +36,4 @@ ingress:
 
 volume:
   name: jenkins-data
-  path: /var/jenkins-home
+  path: /var/jenkins_home
